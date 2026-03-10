@@ -1,4 +1,6 @@
 using InventoryManagementSystem.Data;
+using InventoryManagementSystem.Interfaces;
+using InventoryManagementSystem.Repositories;
 using InventoryManagementSystem.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +13,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnectionString"));
 
 });
+
+
 
 builder.Services.AddControllers();
 
@@ -55,6 +59,8 @@ builder.Services.ConfigureApplicationCookie(options =>
 builder.Services.AddOpenApi();
 
 builder.Services.AddAntiforgery();
+
+builder.Services.AddScoped<ICategory, CategoryRepository>();
 
 var app = builder.Build();
 
