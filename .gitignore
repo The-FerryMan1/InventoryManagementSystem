@@ -1,0 +1,27 @@
+# Binaries
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+
+# IDE files
+.vs/
+.vscode/
+
+# Logs
+logs/
+*.log
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Sensitive configuration
+appsettings.Development.json
+
+# OS generated files
+.DS_Store
+Thumbs.db
