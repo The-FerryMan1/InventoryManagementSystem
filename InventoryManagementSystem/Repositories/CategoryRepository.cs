@@ -24,9 +24,14 @@ public class CategoryRepository(ApplicationDbContext context) : ICategory
     
     }
 
-    public Task<Category?> DestroyAsync(int id)
+    public async Task<Category?> DestroyAsync(int id)
     {
-        throw new NotImplementedException();
+        var category = await _context.Categories.FindAsync(id);
+        if(category is null) return null;
+
+        _context.Categories.Remove(category);
+        await _context.SaveChangesAsync();
+        return category;
     }
 
     public async Task<List<Category>> GetAllAsync()
@@ -39,8 +44,17 @@ public class CategoryRepository(ApplicationDbContext context) : ICategory
         return await _context.Categories.FindAsync(id);
     }
 
-    public Task<Category?> ModifyAsync(int id, UpdateCategoryDto categoryDto)
+    public async Task<Category?> ModifyAsync(int id, UpdateCategoryDto categoryDto)
     {
-        throw new NotImplementedException();
+        var category = await _context.Categories.FindAsync(id);
+        if(category is null) return null;
+
+    
+        category.Name = categoryDto.Name??category.Name;
+        category.Description = categoryDto.Description?? category.Description;
+    
+        await _context.SaveChangesAsync();
+        return category;
+
     }
 }

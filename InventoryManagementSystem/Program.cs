@@ -61,6 +61,8 @@ builder.Services.AddOpenApi();
 builder.Services.AddAntiforgery();
 
 builder.Services.AddScoped<ICategory, CategoryRepository>();
+builder.Services.AddScoped<IProduct, ProductRepository>();
+builder.Services.AddScoped<IProductService, ProductService>();
 
 var app = builder.Build();
 
