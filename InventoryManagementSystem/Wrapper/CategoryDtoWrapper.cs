@@ -8,6 +8,9 @@ public static class CategoryDtoWrapper
 {
     public static CategoryDto ToCategoryDto(this Category category)
     {
-        return new CategoryDto(category.Id, category.Name, category.Description);
+        return new CategoryDto(
+            category.Id, 
+            category.Name, 
+            category.Description);
     }
 }

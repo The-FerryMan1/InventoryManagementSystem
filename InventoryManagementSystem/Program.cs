@@ -63,6 +63,7 @@ builder.Services.AddAntiforgery();
 builder.Services.AddScoped<ICategory, CategoryRepository>();
 builder.Services.AddScoped<IProduct, ProductRepository>();
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IWarehouse, WarehouseRepository>();
 
 var app = builder.Build();
 
